@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+groovy.editor.groovyDoc.keyword.enabled=true
+groovy.editor.groovyDoc.link.enabled=true
+groovy.editor.groovyDoc.tag.enabled=true
+groovy.editor.highlight.default.color=0,0,0
+groovy.editor.highlight.groovykeywords.color=127,0,85
+groovy.editor.highlight.javakeywords.color=127,0,85
+groovy.editor.highlight.javatypes.color=127,0,85
+groovy.editor.highlight.strings.color=255,0,204

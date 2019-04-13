@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+		<changeSet id="insert para teste" author="alberto.rodrigues"
+		context="test">
+		<insert tableName="product_category">
+			<column name="id" valueSequenceNext="product_category_id_seq" />
+			<column name="name" value="denis" />
+			<column name="code" value="123" />
+		</insert>
+	</changeSet>
+	<changeSet id="insert product test" author="Denis.Goncalves"
+		context="test">
+		<insert tableName="product">
+			<column name="id" valueSequenceNext="product_id_seq" />
+			<column name="name" value="camiseta" />
+			<column name="price" value="2.50" />
+			<column name="weight" value="10.0" />
+			<column name="volume" value="10.0" />
+			<column name="code" value="255" />
+			<column name="product_category"
+				valueComputed="(select id from product_category where code = 123)" />
+		</insert>
+	</changeSet>
+	<changeSet id="insert product test for change" author="Denis.Goncalves"
+		context="test">
+		<insert tableName="product">
+			<column name="id" valueSequenceNext="product_id_seq" />
+			<column name="name" value="Celular" />
+			<column name="price" value="300.50" />
+			<column name="weight" value="12.0" />
+			<column name="volume" value="15.0" />
+			<column name="code" value="50" />
+			<column name="product_category"
+				valueComputed="(select id from product_category where code = 123)" />
+		</insert>
+
+	</changeSet>
+	<changeSet id="insert stock for test " author="Denis.Goncalves"
+		context="test">
+		<insert tableName="stock">
+			<column name="id" valueSequenceNext="stock_id_seq" />
+			<column name="quantity" value="0" />
+			<column name="product" valueComputed="(select id from product where code = 255)" />
+		</insert>
+	</changeSet>
+	<changeSet id="insert stock for test for create " author="Denis.Goncalves"
+		context="test">
+		<insert tableName="stock">
+			<column name="id" valueSequenceNext="stock_id_seq" />
+			<column name="quantity" value="0" />
+			<column name="product" valueComputed="(select id from product where code = 33)" />
+		</insert>
+	</changeSet>
+	<changeSet id="insert customer for test" author="Denis.Goncalves"
+		context="test">
+		<insert tableName="customer">
+			<column name="id" valueSequenceNext="customer_id_seq" />
+			<column name="name" value="Denis Gonçalves" />
+			<column name="email" value="denis.goncalves@gmail.com" />
+			<column name="age" value="31" />
+			<column name="password" value="banana123" />
+		</insert>
+	</changeSet>
+	<changeSet id="insert customer for update test" author="Denis.Goncalves"
+		context="test">
+		<insert tableName="customer">
+			<column name="id" valueSequenceNext="customer_id_seq" />
+			<column name="name" value="Pedro Paulo Perez" />
+			<column name="email" value="ppp@gmail.com" />
+			<column name="age" value="20" />
+			<column name="password" value="ppp123" />
+		</insert>
+	</changeSet>
+
+</databaseChangeLog>
